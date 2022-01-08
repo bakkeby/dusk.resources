@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DIR=$(dirname ${BASH_SOURCE[0]})
+
+case $BLOCK_BUTTON in
+	1) notify-send -t 9000 "Updates:" "$(paru -Qu)" > /dev/null & ;;
+	2) st -t "System updates" -e bash -c "paru -Syyu --cleanafter && echo \"Upgrade complete, press enter to exit.\" || echo \"Upgrade failed, press enter to exit.\"; read  -n 1 -p '' ignored;" ;&
+	3) duskc --ignore-reply run_command setstatus 4 "$($DIR/sysupdates)" & ;;
+	8) subl $DIR/sysupdates ;;
+	9) subl $DIR/sysupdates_click ;;
+	*) notify-send -t 2000 "sysupdates $BLOCK_BUTTON" & ;;
+esac

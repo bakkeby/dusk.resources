@@ -1,0 +1,16 @@
+#!/bin/bash
+
+DIR=$(dirname ${BASH_SOURCE[0]})
+
+case $BLOCK_BUTTON in
+	1)
+		if [ -f /sys/class/power_supply/hidpp_battery_0/model_name ]; then
+			notify-send -t 2000 "$(cat /sys/class/power_supply/hidpp_battery_0/model_name)" &
+		elif [ -f /sys/class/power_supply/hidpp_battery_1/model_name ]; then
+			notify-send -t 2000 "$(cat /sys/class/power_supply/hidpp_battery_1/model_name)" &
+		fi
+		;;
+	8) subl $DIR/mouse_battery ;;
+	9) subl $DIR/mouse_battery_click ;;
+	*) notify-send -t 2000 "batt $BLOCK_BUTTON" & ;;
+esac

@@ -1,0 +1,249 @@
+#!/bin/bash
+
+if [ -z $IPCCMD ]; then
+	IPCCMD=duskc
+fi
+
+bind_layout() {
+	cat << EOF | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/"
+#INDENT#Layout
+#INDENT#	tile	#IPCCMD# run_command setlayoutex 0
+#INDENT#	columns	#IPCCMD# run_command setlayoutex 1
+#INDENT#	rows	#IPCCMD# run_command setlayoutex 2
+#INDENT#	monocle	#IPCCMD# run_command setlayoutex 3
+#INDENT#	col	#IPCCMD# run_command setlayoutex 4
+#INDENT#	floating master	#IPCCMD# run_command setlayoutex 5
+#INDENT#	deck	#IPCCMD# run_command setlayoutex 6
+#INDENT#	bstack	#IPCCMD# run_command setlayoutex 7
+#INDENT#	bstackhoriz	#IPCCMD# run_command setlayoutex 8
+#INDENT#	bstackgrid	#IPCCMD# run_command setlayoutex 9
+#INDENT#	centeredmaster	#IPCCMD# run_command setlayoutex 10
+#INDENT#	centeredmaster horiz	#IPCCMD# run_command setlayoutex 11
+#INDENT#	gappless grid	#IPCCMD# run_command setlayoutex 12
+#INDENT#	fibonacci dwindle	#IPCCMD# run_command setlayoutex 13
+#INDENT#	fibonacci spiral	#IPCCMD# run_command setlayoutex 14
+#INDENT#	tatami layout	#IPCCMD# run_command setlayoutex 15
+#INDENT#	floating layout	#IPCCMD# run_command setlayoutex 16
+#INDENT#Flextile
+#INDENT#	Split
+#INDENT#		No Split	#IPCCMD# run_command setlayoutaxisex 0
+#INDENT#		Vertical	#IPCCMD# run_command setlayoutaxisex 4
+#INDENT#		Horizontal	#IPCCMD# run_command setlayoutaxisex 8
+#INDENT#		Centered Vertical	#IPCCMD# run_command setlayoutaxisex 12
+#INDENT#		Centered Horizontal	#IPCCMD# run_command setlayoutaxisex 16
+#INDENT#		Vertical Dual Stack	#IPCCMD# run_command setlayoutaxisex 20
+#INDENT#		Horizontal Dual Stack	#IPCCMD# run_command setlayoutaxisex 24
+#INDENT#		Floating Master	#IPCCMD# run_command setlayoutaxisex 28
+#INDENT#		Fixed Vertical	#IPCCMD# run_command setlayoutaxisex 32
+#INDENT#		Fixed Horizontal	#IPCCMD# run_command setlayoutaxisex 36
+#INDENT#		Fixed Centered Vertical	#IPCCMD# run_command setlayoutaxisex 40
+#INDENT#		Fixed Centered Horizontal	#IPCCMD# run_command setlayoutaxisex 44
+#INDENT#		Fixed Vertical Dual Stack	#IPCCMD# run_command setlayoutaxisex 48
+#INDENT#		Fixed Horizontal Dual Stack	#IPCCMD# run_command setlayoutaxisex 52
+#INDENT#		Fixed Floating Master	#IPCCMD# run_command setlayoutaxisex 56
+#INDENT#	Master
+#INDENT#		Top To Bottom	#IPCCMD# run_command setlayoutaxisex 1
+#INDENT#		Left To Right	#IPCCMD# run_command setlayoutaxisex 5
+#INDENT#		Monocle	#IPCCMD# run_command setlayoutaxisex 9
+#INDENT#		Gapplessgrid	#IPCCMD# run_command setlayoutaxisex 13
+#INDENT#		Gapplessgrid Cfacts	#IPCCMD# run_command setlayoutaxisex 17
+#INDENT#		Gapplessgrid Alt1	#IPCCMD# run_command setlayoutaxisex 21
+#INDENT#		Gapplessgrid Alt2	#IPCCMD# run_command setlayoutaxisex 25
+#INDENT#		Gridmode	#IPCCMD# run_command setlayoutaxisex 29
+#INDENT#		Horizgrid	#IPCCMD# run_command setlayoutaxisex 33
+#INDENT#		Fibonacci Dwindle	#IPCCMD# run_command setlayoutaxisex 37
+#INDENT#		Fibonacci Dwindle Cfacts	#IPCCMD# run_command setlayoutaxisex 41
+#INDENT#		Fibonacci Spiral	#IPCCMD# run_command setlayoutaxisex 45
+#INDENT#		Fibonacci Spiral Cfacts	#IPCCMD# run_command setlayoutaxisex 49
+#INDENT#		Tatami	#IPCCMD# run_command setlayoutaxisex 53
+#INDENT#		Tatami Cfacts	#IPCCMD# run_command setlayoutaxisex 57
+#INDENT#	Stack1
+#INDENT#		Top To Bottom	#IPCCMD# run_command setlayoutaxisex 2
+#INDENT#		Left To Right	#IPCCMD# run_command setlayoutaxisex 6
+#INDENT#		Monocle	#IPCCMD# run_command setlayoutaxisex 10
+#INDENT#		Gapplessgrid	#IPCCMD# run_command setlayoutaxisex 14
+#INDENT#		Gapplessgrid Cfacts	#IPCCMD# run_command setlayoutaxisex 18
+#INDENT#		Gapplessgrid Alt1	#IPCCMD# run_command setlayoutaxisex 22
+#INDENT#		Gapplessgrid Alt2	#IPCCMD# run_command setlayoutaxisex 26
+#INDENT#		Gridmode	#IPCCMD# run_command setlayoutaxisex 30
+#INDENT#		Horizgrid	#IPCCMD# run_command setlayoutaxisex 34
+#INDENT#		Fibonacci Dwindle	#IPCCMD# run_command setlayoutaxisex 38
+#INDENT#		Fibonacci Dwindle Cfacts	#IPCCMD# run_command setlayoutaxisex 42
+#INDENT#		Fibonacci Spiral	#IPCCMD# run_command setlayoutaxisex 46
+#INDENT#		Fibonacci Spiral Cfacts	#IPCCMD# run_command setlayoutaxisex 50
+#INDENT#		Tatami	#IPCCMD# run_command setlayoutaxisex 54
+#INDENT#		Tatami Cfacts	#IPCCMD# run_command setlayoutaxisex 58
+#INDENT#	Stack2
+#INDENT#		Top To Bottom	#IPCCMD# run_command setlayoutaxisex 3
+#INDENT#		Left To Right	#IPCCMD# run_command setlayoutaxisex 7
+#INDENT#		Monocle	#IPCCMD# run_command setlayoutaxisex 11
+#INDENT#		Gapplessgrid	#IPCCMD# run_command setlayoutaxisex 15
+#INDENT#		Gapplessgrid Cfacts	#IPCCMD# run_command setlayoutaxisex 19
+#INDENT#		Gapplessgrid Alt1	#IPCCMD# run_command setlayoutaxisex 23
+#INDENT#		Gapplessgrid Alt2	#IPCCMD# run_command setlayoutaxisex 27
+#INDENT#		Gridmode	#IPCCMD# run_command setlayoutaxisex 31
+#INDENT#		Horizgrid	#IPCCMD# run_command setlayoutaxisex 35
+#INDENT#		Fibonacci Dwindle	#IPCCMD# run_command setlayoutaxisex 39
+#INDENT#		Fibonacci Dwindle Cfacts	#IPCCMD# run_command setlayoutaxisex 43
+#INDENT#		Fibonacci Spiral	#IPCCMD# run_command setlayoutaxisex 47
+#INDENT#		Fibonacci Spiral Cfacts	#IPCCMD# run_command setlayoutaxisex 51
+#INDENT#		Tatami	#IPCCMD# run_command setlayoutaxisex 55
+#INDENT#		Tatami Cfacts	#IPCCMD# run_command setlayoutaxisex 59
+#INDENT#	Mirror Layout	#IPCCMD# run_command mirrorlayout
+#INDENT#Gaps
+#INDENT#	Presets
+#INDENT#		No gaps (0px)	#IPCCMD# run_command setgaps 0
+#INDENT#	Inner
+#INDENT#		Horizontal
+#INDENT#			0px	#IPCCMD# run_command setgaps 2155872384
+#INDENT#			1px	#IPCCMD# run_command setgaps 2155872640
+#INDENT#			2px	#IPCCMD# run_command setgaps 2155872896
+#INDENT#			3px	#IPCCMD# run_command setgaps 2155873152
+#INDENT#			4px	#IPCCMD# run_command setgaps 2155873408
+#INDENT#			5px	#IPCCMD# run_command setgaps 2155873664
+#INDENT#			10px	#IPCCMD# run_command setgaps 2155874944
+#INDENT#			15px	#IPCCMD# run_command setgaps 2155876224
+#INDENT#			20px	#IPCCMD# run_command setgaps 2155877504
+#INDENT#			25px	#IPCCMD# run_command setgaps 2155878784
+#INDENT#			30px	#IPCCMD# run_command setgaps 2155880064
+#INDENT#			35px	#IPCCMD# run_command setgaps 2155881344
+#INDENT#			40px	#IPCCMD# run_command setgaps 2155882624
+#INDENT#			45px	#IPCCMD# run_command setgaps 2155883904
+#INDENT#			50px	#IPCCMD# run_command setgaps 2155885184
+#INDENT#		Vertical
+#INDENT#			0px	#IPCCMD# run_command setgaps 2155905024
+#INDENT#			1px	#IPCCMD# run_command setgaps 2155905025
+#INDENT#			2px	#IPCCMD# run_command setgaps 2155905026
+#INDENT#			3px	#IPCCMD# run_command setgaps 2155905027
+#INDENT#			4px	#IPCCMD# run_command setgaps 2155905028
+#INDENT#			5px	#IPCCMD# run_command setgaps 2155905029
+#INDENT#			10px	#IPCCMD# run_command setgaps 2155905034
+#INDENT#			15px	#IPCCMD# run_command setgaps 2155905039
+#INDENT#			20px	#IPCCMD# run_command setgaps 2155905044
+#INDENT#			25px	#IPCCMD# run_command setgaps 2155905049
+#INDENT#			30px	#IPCCMD# run_command setgaps 2155905054
+#INDENT#			35px	#IPCCMD# run_command setgaps 2155905059
+#INDENT#			40px	#IPCCMD# run_command setgaps 2155905064
+#INDENT#			45px	#IPCCMD# run_command setgaps 2155905069
+#INDENT#			50px	#IPCCMD# run_command setgaps 2155905074
+#INDENT#		No inner gaps (0px)	#IPCCMD# run_command setgaps 2155872256
+#INDENT#		1px	#IPCCMD# run_command setgaps 2155872513
+#INDENT#		2px	#IPCCMD# run_command setgaps 2155872770
+#INDENT#		3px	#IPCCMD# run_command setgaps 2155873027
+#INDENT#		4px	#IPCCMD# run_command setgaps 2155873284
+#INDENT#		5px	#IPCCMD# run_command setgaps 2155873541
+#INDENT#		10px	#IPCCMD# run_command setgaps 2155874826
+#INDENT#		15px	#IPCCMD# run_command setgaps 2155876111
+#INDENT#		20px	#IPCCMD# run_command setgaps 2155877396
+#INDENT#		25px	#IPCCMD# run_command setgaps 2155878681
+#INDENT#		30px	#IPCCMD# run_command setgaps 2155879966
+#INDENT#		35px	#IPCCMD# run_command setgaps 2155881251
+#INDENT#		40px	#IPCCMD# run_command setgaps 2155882536
+#INDENT#		45px	#IPCCMD# run_command setgaps 2155883821
+#INDENT#		50px	#IPCCMD# run_command setgaps 2155885106
+#INDENT#	Outer
+#INDENT#		Horizontal
+#INDENT#			0px	#IPCCMD# run_command setgaps 8421504
+#INDENT#			1px	#IPCCMD# run_command setgaps 25198720
+#INDENT#			2px	#IPCCMD# run_command setgaps 41975936
+#INDENT#			3px	#IPCCMD# run_command setgaps 58753152
+#INDENT#			4px	#IPCCMD# run_command setgaps 75530368
+#INDENT#			5px	#IPCCMD# run_command setgaps 92307584
+#INDENT#			10px	#IPCCMD# run_command setgaps 176193664
+#INDENT#			15px	#IPCCMD# run_command setgaps 260079744
+#INDENT#			20px	#IPCCMD# run_command setgaps 343965824
+#INDENT#			25px	#IPCCMD# run_command setgaps 427851904
+#INDENT#			30px	#IPCCMD# run_command setgaps 511737984
+#INDENT#			35px	#IPCCMD# run_command setgaps 595624064
+#INDENT#			40px	#IPCCMD# run_command setgaps 679510144
+#INDENT#			45px	#IPCCMD# run_command setgaps 763396224
+#INDENT#			50px	#IPCCMD# run_command setgaps 847282304
+#INDENT#		Vertical
+#INDENT#			0px	#IPCCMD# run_command setgaps 2147516544
+#INDENT#			1px	#IPCCMD# run_command setgaps 2147582080
+#INDENT#			2px	#IPCCMD# run_command setgaps 2147647616
+#INDENT#			3px	#IPCCMD# run_command setgaps 2147713152
+#INDENT#			4px	#IPCCMD# run_command setgaps 2147778688
+#INDENT#			5px	#IPCCMD# run_command setgaps 2147844224
+#INDENT#			10px	#IPCCMD# run_command setgaps 2148171904
+#INDENT#			15px	#IPCCMD# run_command setgaps 2148499584
+#INDENT#			20px	#IPCCMD# run_command setgaps 2148827264
+#INDENT#			25px	#IPCCMD# run_command setgaps 2149154944
+#INDENT#			30px	#IPCCMD# run_command setgaps 2149482624
+#INDENT#			35px	#IPCCMD# run_command setgaps 2149810304
+#INDENT#			40px	#IPCCMD# run_command setgaps 2150137984
+#INDENT#			45px	#IPCCMD# run_command setgaps 2150465664
+#INDENT#			50px	#IPCCMD# run_command setgaps 2150793344
+#INDENT#		No outer gaps (0px)	#IPCCMD# run_command setgaps 32896
+#INDENT#		1px	#IPCCMD# run_command setgaps 16875648
+#INDENT#		2px	#IPCCMD# run_command setgaps 33718400
+#INDENT#		3px	#IPCCMD# run_command setgaps 50561152
+#INDENT#		4px	#IPCCMD# run_command setgaps 67403904
+#INDENT#		5px	#IPCCMD# run_command setgaps 84246656
+#INDENT#		10px	#IPCCMD# run_command setgaps 168460416
+#INDENT#		15px	#IPCCMD# run_command setgaps 252674176
+#INDENT#		20px	#IPCCMD# run_command setgaps 336887936
+#INDENT#		25px	#IPCCMD# run_command setgaps 421101696
+#INDENT#		30px	#IPCCMD# run_command setgaps 505315456
+#INDENT#		35px	#IPCCMD# run_command setgaps 589529216
+#INDENT#		40px	#IPCCMD# run_command setgaps 673742976
+#INDENT#		45px	#IPCCMD# run_command setgaps 757956736
+#INDENT#		50px	#IPCCMD# run_command setgaps 842170496
+#INDENT#	Both
+#INDENT#		Horizontal
+#INDENT#			0px	#IPCCMD# run_command setgaps 8388736
+#INDENT#			1px	#IPCCMD# run_command setgaps 25166208
+#INDENT#			2px	#IPCCMD# run_command setgaps 41943680
+#INDENT#			3px	#IPCCMD# run_command setgaps 58721152
+#INDENT#			4px	#IPCCMD# run_command setgaps 75498624
+#INDENT#			5px	#IPCCMD# run_command setgaps 92276096
+#INDENT#			10px	#IPCCMD# run_command setgaps 176163456
+#INDENT#			15px	#IPCCMD# run_command setgaps 260050816
+#INDENT#			20px	#IPCCMD# run_command setgaps 343938176
+#INDENT#			25px	#IPCCMD# run_command setgaps 427825536
+#INDENT#			30px	#IPCCMD# run_command setgaps 511712896
+#INDENT#			35px	#IPCCMD# run_command setgaps 595600256
+#INDENT#			40px	#IPCCMD# run_command setgaps 679487616
+#INDENT#			45px	#IPCCMD# run_command setgaps 763374976
+#INDENT#			50px	#IPCCMD# run_command setgaps 847262336
+#INDENT#		Vertical
+#INDENT#			0px	#IPCCMD# run_command setgaps 2147516416
+#INDENT#			1px	#IPCCMD# run_command setgaps 2147581953
+#INDENT#			2px	#IPCCMD# run_command setgaps 2147647490
+#INDENT#			3px	#IPCCMD# run_command setgaps 2147713027
+#INDENT#			4px	#IPCCMD# run_command setgaps 2147778564
+#INDENT#			5px	#IPCCMD# run_command setgaps 2147844101
+#INDENT#			10px	#IPCCMD# run_command setgaps 2148171786
+#INDENT#			15px	#IPCCMD# run_command setgaps 2148499471
+#INDENT#			20px	#IPCCMD# run_command setgaps 2148827156
+#INDENT#			25px	#IPCCMD# run_command setgaps 2149154841
+#INDENT#			30px	#IPCCMD# run_command setgaps 2149482526
+#INDENT#			35px	#IPCCMD# run_command setgaps 2149810211
+#INDENT#			40px	#IPCCMD# run_command setgaps 2150137896
+#INDENT#			45px	#IPCCMD# run_command setgaps 2150465581
+#INDENT#			50px	#IPCCMD# run_command setgaps 2150793266
+#INDENT#		No gaps (0px)	#IPCCMD# run_command setgaps 0
+#INDENT#		1px	#IPCCMD# run_command setgaps 16843009
+#INDENT#		2px	#IPCCMD# run_command setgaps 33686018
+#INDENT#		3px	#IPCCMD# run_command setgaps 50529027
+#INDENT#		4px	#IPCCMD# run_command setgaps 67372036
+#INDENT#		5px	#IPCCMD# run_command setgaps 84215045
+#INDENT#		10px	#IPCCMD# run_command setgaps 168430090
+#INDENT#		15px	#IPCCMD# run_command setgaps 252645135
+#INDENT#		20px	#IPCCMD# run_command setgaps 336860180
+#INDENT#		25px	#IPCCMD# run_command setgaps 421075225
+#INDENT#		30px	#IPCCMD# run_command setgaps 505290270
+#INDENT#		35px	#IPCCMD# run_command setgaps 589505315
+#INDENT#		40px	#IPCCMD# run_command setgaps 673720360
+#INDENT#		45px	#IPCCMD# run_command setgaps 757935405
+#INDENT#		50px	#IPCCMD# run_command setgaps 842150450
+#INDENT#	Default Gaps	#IPCCMD# run_command defaultgaps
+#INDENT#	Toggle Gaps	#IPCCMD# run_command togglegaps
+EOF
+}
+
+# Allow the above menu to be sourced by other scripts by setting
+# the SOURCE_MENU environment variable.
+if [ -z $SOURCE_MENU ]; then
+	$(bind_layout | xmenu)
+fi

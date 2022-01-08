@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [ -z $IPCCMD ]; then
+	IPCCMD=duskc
+fi
+
+IPCCMD=duskc
+
+bind_clientmenu() {
+	WINID=$($IPCCMD get_monitors | jq '.[] | select(.is_selected == true) | .clients.selected')
+	JSON=$($IPCCMD get_client $WINID)
+	NAME=$(echo $JSON | jq '.name' | sed 's/"//g')
+
+	echo $JSON | jq '.flags' | awk -F":" -vNAME="$NAME" '
+		BEGIN {
+			print "#INDENT#" NAME
+			print "#INDENT#\tKill Client\t#IPCCMD# run_command killclient"
+			print "#INDENT#\tToggle Floating\t#IPCCMD# run_command togglefloating"
+			print "#INDENT#"
+		}
+
+		NF == 1 {
+			next
+		}
+
+		{
+			gsub(/^  |"|,/, "");
+			print "#INDENT#" $1 ": " $2 "\t#IPCCMD# run_command toggleclientflag " $1
+		}
+	' | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/"
+}
+
+# Allow the above menu to be sourced by other scripts by setting
+# the SOURCE_MENU environment variable.
+if [ -z $SOURCE_MENU ]; then
+	$(bind_clientmenu | xmenu)
+fi

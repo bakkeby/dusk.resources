@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DIR=$(dirname ${BASH_SOURCE[0]})
+
+case $BLOCK_BUTTON in
+	1) alacritty & ;;
+	3) $DIR/../context_menu/systemmenu & ;;
+	8) subl $DIR/statusbutton ;;
+	9) subl $DIR/statusbutton_click ;;
+	*) notify-send -t 2000 "statusbutton $BLOCK_BUTTON" & ;;
+esac

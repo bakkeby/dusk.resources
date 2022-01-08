@@ -1,0 +1,10 @@
+#!/bin/bash
+COLOR=^c#FF0000^
+BATTERY_ICON=🖱
+FILE=$(ls /sys/class/power_supply/hidpp_battery_*/capacity_level 2>/dev/null | head -n 1)
+if [ ! -z "$FILE" ]; then
+	CAPACITY=$(cat $FILE)
+	if [ $CAPACITY = "Low" ]; then
+		echo "${COLOR}${BATTERY_ICON} ${CAPACITY}^d^"
+	fi
+fi

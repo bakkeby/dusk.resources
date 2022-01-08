@@ -1,0 +1,96 @@
+#!/bin/bash
+
+DIR=$(dirname ${BASH_SOURCE[0]})
+
+IPCCMD=duskc
+
+SOURCE_MENU=1
+for MENU in layoutmenu settingsmenu systemmenu; do
+	[ -f ${DIR}/${MENU} ] && source ${DIR}/${MENU}
+done
+
+bind_graphics() {
+	local COMMANDS=
+	for COMMAND in gimp inkscape; do
+		[ $(command -v ${COMMAND}) ] && COMMANDS+="${1}\t${COMMAND}\n"
+	done
+
+	[ ! -z $COMMANDS ] && COMMANDS="${1}Graphics\n$COMMANDS"
+	echo $COMMANDS
+}
+
+bind_terminals() {
+	local COMMANDS=""
+	for COMMAND in alacritty gnome-terminal st terminator xterm; do
+		[ $(command -v ${COMMAND}) ] && COMMANDS+="${1}\t${COMMAND}\n"
+	done
+
+	[ ! -z $COMMANDS ] && COMMANDS="${1}Terminal\n$COMMANDS"
+	echo $COMMANDS
+}
+
+bind_editors() {
+	local COMMANDS=""
+	for COMMAND in kate kwrite subl gedit gvim atom code; do
+		[ $(command -v ${COMMAND}) ] && COMMANDS+="${1}\t${COMMAND}\n"
+	done
+
+	[ ! -z $COMMANDS ] && COMMANDS="${1}Editors\n$COMMANDS"
+	echo $COMMANDS
+}
+
+bind_web() {
+	local COMMANDS=""
+	for COMMAND in brave google-chrome google-chrome-stable firefox surf vivaldi; do
+		[ $(command -v ${COMMAND}) ] && COMMANDS+="${1}\t${COMMAND}\n"
+	done
+
+	[ ! -z $COMMANDS ] && COMMANDS="${1}Web\n$COMMANDS"
+	echo $COMMANDS
+}
+
+bind_chat() {
+	local COMMANDS=""
+	for COMMAND in slack discord bluejeans; do
+		[ $(command -v ${COMMAND}) ] && COMMANDS+="${1}\t${COMMAND}\n"
+	done
+
+	[ ! -z $COMMANDS ] && COMMANDS="${1}Chat\n$COMMANDS"
+	echo $COMMANDS
+}
+
+bind_applications() {
+
+	local COMMANDS=""
+	for CATEGORY in graphics editors terminals web chat; do
+		COMMANDS+=$(bind_$CATEGORY "${1}\t")
+	done
+
+	[ ! -z $COMMANDS ] && COMMANDS="${1}Applications\n$COMMANDS"
+	echo $COMMANDS
+}
+
+ALLCOMMANDS=""
+ALLCOMMANDS+=$(bind_applications)
+ALLCOMMANDS+="\n"
+ALLCOMMANDS+=$(bind_layout)
+ALLCOMMANDS+="\n"
+ALLCOMMANDS+="\n"
+ALLCOMMANDS+=$(bind_settingsmenu)
+ALLCOMMANDS+="\n"
+ALLCOMMANDS+="\n"
+ALLCOMMANDS+=$(bind_system)
+
+echo "ALLCOMMANDS = $ALLCOMMANDS"
+
+if [[ $1 == '-e' ]]; then
+	echo -e ${ALLCOMMANDS%%\\\n}
+	exit
+fi
+
+CHOICE=$(echo -e "${ALLCOMMANDS%%\\\n}" | xmenu)
+case $CHOICE in
+*)
+	$CHOICE
+	;;
+esac
