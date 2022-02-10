@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DIR=$(dirname ${BASH_SOURCE[0]})
+
+case $BLOCK_BUTTON in
+	1) change_kblayout.sh & ;;
+	3) change_kblayout.sh & ;;
+	8) subl $DIR/kblayout ;;
+	9) subl $DIR/kblayout_click ;;
+	*) notify-send -t 2000 "kblayout $BLOCK_BUTTON" & ;;
+esac

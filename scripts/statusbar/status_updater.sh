@@ -16,23 +16,29 @@ sleep 0.5
 
 SETSTATUS="duskc --ignore-reply run_command setstatus"
 
-$SETSTATUS 7 "$($DIR/statusbutton)" &
-
 secs=0
 
 while true; do
 
-	$SETSTATUS 0 "$($DIR/clock)" &
+	$SETSTATUS 0 "$($DIR/clock)"
+
+	if [ $? != 0 ]; then
+		echo "Failed to set status, bailing"
+		exit
+	fi
+
 	$SETSTATUS 2 "$($DIR/mem)" &
 	$SETSTATUS 3 "$($DIR/cpu)" &
 
 	if [ $((secs % 60)) = 0 ]; then
 		$SETSTATUS 5 "$($DIR/mouse_battery)" &
 		$SETSTATUS 1 "$($DIR/volume)" &
+		$SETSTATUS 9 "$($DIR/kblayout)" &
 	fi
 
 	if [ $((secs % 3600)) = 0 ]; then
 		$SETSTATUS 4 "$($DIR/sysupdates)" &
+		$SETSTATUS 7 "$($DIR/statusbutton)" &
 	fi
 
 	((secs+=1))
