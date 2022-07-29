@@ -1,202 +1,223 @@
+#include "dusk.xresources.defaults.txt"
 
-! == dusk terminal colors ===
-dusk.color0: #000000
-dusk.color1: #000000
-dusk.color2: #000000
-dusk.color3: #000000
-dusk.color4: #000000
-dusk.color5: #000000
-dusk.color6: #000000
-dusk.color7: #000000
-dusk.color8: #000000
-dusk.color9: #000000
-dusk.color10: #000000
-dusk.color11: #000000
-dusk.color12: #000000
-dusk.color13: #000000
-dusk.color14: #000000
-dusk.color15: #000000
+! === terminal colors ===
+#ifdef COLOR0
+*.color0: COLOR0
+#else
+dusk.color0: BASE_BACKGROUND
+#endif
+#ifdef COLOR1
+*.color1: COLOR1
+#else
+dusk.color1: WARNING_BG_COLOR
+#endif
+#ifdef COLOR2
+*.color2: COLOR2
+#else
+dusk.color2: MARKED_FG_COLOR
+#endif
+#ifdef COLOR3
+*.color3: COLOR3
+#else
+dusk.color3: SCRATCH_NORM_BG_COLOR
+#endif
+#ifdef COLOR4
+*.color4: COLOR4
+#else
+dusk.color4: MARKED_BG_COLOR
+#endif
+#ifdef COLOR5
+*.color5: COLOR5
+#else
+dusk.color5: HID_SEL_BG_COLOR
+#endif
+#ifdef COLOR6
+*.color6: COLOR6
+#else
+dusk.color6: URGENT_BG_COLOR
+#endif
+#ifdef COLOR7
+*.color7: COLOR7
+#else
+dusk.color7: SELECTED_BACKGROUND
+#endif
+#ifdef COLOR8
+*.color8: COLOR8
+#else
+dusk.color8: BASE_FOREGROUND
+#endif
+#ifdef COLOR9
+*.color9: COLOR9
+#else
+dusk.color9: SELECTED_FOREGROUND
+#endif
+#ifdef COLOR10
+*.color10: COLOR10
+#else
+dusk.color10: WS_NORM_BG_COLOR
+#endif
+#ifdef COLOR11
+*.color11: COLOR11
+#else
+dusk.color11: WS_SEL_BG_COLOR
+#endif
+#ifdef COLOR12
+*.color12: COLOR12
+#else
+dusk.color12: TITLE_NORM_BG_COLOR
+#endif
+#ifdef COLOR13
+*.color13: COLOR13
+#else
+dusk.color13: TITLE_SEL_BG_COLOR
+#endif
+#ifdef COLOR14
+*.color14: COLOR14
+#else
+dusk.color14: SCRATCH_NORM_BG_COLOR
+#endif
+#ifdef COLOR15
+*.color15: COLOR15
+#else
+dusk.color15: SCRATCH_SEL_BG_COLOR
+#endif
 
-! == dusk background colors ===
-dusk.normbgcolor:                  #000000
-dusk.selbgcolor:                   #000000
-dusk.wsnormbgcolor:                #000000
-dusk.wsvisbgcolor:                 #000000
-dusk.wsselbgcolor:                 #000000
-dusk.wsoccbgcolor:                 #000000
-dusk.hidnormbgcolor:               #000000
-dusk.hidselbgcolor:                #000000
-dusk.urgbgcolor:                   #000000
-dusk.markedbgcolor:                #000000
-dusk.scratchnormbgcolor:           #000000
-dusk.scratchselbgcolor:            #000000
-dusk.actTTBbgcolor:                #000000
-dusk.actLTRbgcolor:                #000000
-dusk.actMONObgcolor:               #000000
-dusk.actGRIDbgcolor:               #000000
-dusk.actGRIDCbgcolor:              #000000
-dusk.actGRD1bgcolor:               #000000
-dusk.actGRD2bgcolor:               #000000
-dusk.actGRDMbgcolor:               #000000
-dusk.actHGRDbgcolor:               #000000
-dusk.actDWDLbgcolor:               #000000
-dusk.actDWDLCbgcolor:              #000000
-dusk.actSPRLbgcolor:               #000000
-dusk.actSPRLCbgcolor:              #000000
-dusk.actTTMIbgcolor:               #000000
-dusk.actTTMICbgcolor:              #000000
-dusk.actfloatbgcolor:              #000000
-dusk.normTTBbgcolor:               #000000
-dusk.normLTRbgcolor:               #000000
-dusk.normMONObgcolor:              #000000
-dusk.normGRIDbgcolor:              #000000
-dusk.normGRIDCbgcolor:             #000000
-dusk.normGRD1bgcolor:              #000000
-dusk.normGRD2bgcolor:              #000000
-dusk.normGRDMbgcolor:              #000000
-dusk.normHGRDbgcolor:              #000000
-dusk.normDWDLbgcolor:              #000000
-dusk.normDWDLCbgcolor:             #000000
-dusk.normSPRLbgcolor:              #000000
-dusk.normSPRLCbgcolor:             #000000
-dusk.normTTMIbgcolor:              #000000
-dusk.normTTMICbgcolor:             #000000
-dusk.normfloatbgcolor:             #000000
-dusk.selTTBbgcolor:                #000000
-dusk.selLTRbgcolor:                #000000
-dusk.selMONObgcolor:               #000000
-dusk.selGRIDCbgcolor:              #000000
-dusk.selGRIDbgcolor:               #000000
-dusk.selGRD1bgcolor:               #000000
-dusk.selGRD2bgcolor:               #000000
-dusk.selGRDMbgcolor:               #000000
-dusk.selHGRDbgcolor:               #000000
-dusk.selDWDLbgcolor:               #000000
-dusk.selDWDLCbgcolor:              #000000
-dusk.selSPRLbgcolor:               #000000
-dusk.selSPRLCbgcolor:              #000000
-dusk.selTTMIbgcolor:               #000000
-dusk.selTTMICbgcolor:              #000000
-dusk.selfloatbgcolor:              #000000
+! === general colors ===
+*.foreground: BASE_FOREGROUND
+*.background: BASE_BACKGROUND
 
-! == dusk border colors ===
-dusk.urgbordercolor:               #000000
-dusk.markedbordercolor:            #000000
-dusk.scratchnormbordercolor:       #000000
-dusk.scratchselbordercolor:        #000000
-dusk.actTTBbgcolor:                #000000
-dusk.actLTRbgcolor:                #000000
-dusk.actMONObgcolor:               #000000
-dusk.actGRIDbgcolor:               #000000
-dusk.actGRIDCbgcolor:              #000000
-dusk.actGRD1bgcolor:               #000000
-dusk.actGRD2bgcolor:               #000000
-dusk.actGRDMbgcolor:               #000000
-dusk.actHGRDbgcolor:               #000000
-dusk.actDWDLbgcolor:               #000000
-dusk.actDWDLCbgcolor:              #000000
-dusk.actSPRLbgcolor:               #000000
-dusk.actSPRLCbgcolor:              #000000
-dusk.actTTMIbgcolor:               #000000
-dusk.actTTMICbgcolor:              #000000
-dusk.actfloatbgcolor:              #000000
-dusk.normTTBbgcolor:               #000000
-dusk.normLTRbgcolor:               #000000
-dusk.normMONObgcolor:              #000000
-dusk.normGRIDbgcolor:              #000000
-dusk.normGRIDCbgcolor:             #000000
-dusk.normGRD1bgcolor:              #000000
-dusk.normGRD2bgcolor:              #000000
-dusk.normGRDMbgcolor:              #000000
-dusk.normHGRDbgcolor:              #000000
-dusk.normDWDLbgcolor:              #000000
-dusk.normDWDLCbgcolor:             #000000
-dusk.normSPRLbgcolor:              #000000
-dusk.normSPRLCbgcolor:             #000000
-dusk.normTTMIbgcolor:              #000000
-dusk.normTTMICbgcolor:             #000000
-dusk.normfloatbgcolor:             #000000
-dusk.selTTBbgcolor:                #000000
-dusk.selLTRbgcolor:                #000000
-dusk.selMONObgcolor:               #000000
-dusk.selGRIDCbgcolor:              #000000
-dusk.selGRIDbgcolor:               #000000
-dusk.selGRD1bgcolor:               #000000
-dusk.selGRD2bgcolor:               #000000
-dusk.selGRDMbgcolor:               #000000
-dusk.selHGRDbgcolor:               #000000
-dusk.selDWDLbgcolor:               #000000
-dusk.selDWDLCbgcolor:              #000000
-dusk.selSPRLbgcolor:               #000000
-dusk.selSPRLCbgcolor:              #000000
-dusk.selTTMIbgcolor:               #000000
-dusk.selTTMICbgcolor:              #000000
-dusk.selfloatbgcolor:              #000000
+! === dusk foreground colors ===
+dusk.norm.fg.color:                   NORM_FG_COLOR
+dusk.sel.fg.color:                    SEL_FG_COLOR
+dusk.titlenorm.fg.color:              TITLE_NORM_FG_COLOR
+dusk.titlesel.fg.color:               TITLE_SEL_FG_COLOR
+dusk.wsnorm.fg.color:                 WS_NORM_FG_COLOR
+dusk.wsvis.fg.color:                  WS_VIS_FG_COLOR
+dusk.wssel.fg.color:                  WS_SEL_FG_COLOR
+dusk.wsocc.fg.color:                  WS_OCC_FG_COLOR
+dusk.hidnorm.fg.color:                HID_NORM_FG_COLOR
+dusk.hidsel.fg.color:                 HID_SEL_FG_COLOR
+dusk.urg.fg.color:                    URGENT_FG_COLOR
+dusk.marked.fg.color:                 MARKED_FG_COLOR
+dusk.scratchnorm.fg.color:            SCRATCH_NORM_FG_COLOR
+dusk.scratchsel.fg.color:             SCRATCH_SEL_FG_COLOR
+dusk.norm.*.fg.color:                 TITLE_NORM_FG_COLOR
+dusk.act.*.fg.color:                  TITLE_NORM_FG_COLOR
+dusk.sel.*.fg.color:                  TITLE_SEL_FG_COLOR
 
-! == dusk foreground colors ===
-dusk.normfgcolor:                  #000000
-dusk.selfgcolor:                   #000000
-dusk.wsnormfgcolor:                #000000
-dusk.wsvisfgcolor:                 #000000
-dusk.wsselfgcolor:                 #000000
-dusk.wsoccfgcolor:                 #000000
-dusk.hidnormfgcolor:               #000000
-dusk.hidselfgcolor:                #000000
-dusk.urgfgcolor:                   #000000
-dusk.markedfgcolor:                #000000
-dusk.scratchnormfgcolor:           #000000
-dusk.scratchselfgcolor:            #000000
-dusk.actTTBfgcolor:                #000000
-dusk.actLTRfgcolor:                #000000
-dusk.actMONOfgcolor:               #000000
-dusk.actGRIDfgcolor:               #000000
-dusk.actGRIDCfgcolor:              #000000
-dusk.actGRD1fgcolor:               #000000
-dusk.actGRD2fgcolor:               #000000
-dusk.actGRDMfgcolor:               #000000
-dusk.actHGRDfgcolor:               #000000
-dusk.actDWDLfgcolor:               #000000
-dusk.actDWDLCfgcolor:              #000000
-dusk.actSPRLfgcolor:               #000000
-dusk.actSPRLCfgcolor:              #000000
-dusk.actTTMIfgcolor:               #000000
-dusk.actTTMICfgcolor:              #000000
-dusk.actfloatfgcolor:              #000000
-dusk.normTTBfgcolor:               #000000
-dusk.normLTRfgcolor:               #000000
-dusk.normMONOfgcolor:              #000000
-dusk.normGRIDfgcolor:              #000000
-dusk.normGRIDCfgcolor:             #000000
-dusk.normGRD1fgcolor:              #000000
-dusk.normGRD2fgcolor:              #000000
-dusk.normGRDMfgcolor:              #000000
-dusk.normHGRDfgcolor:              #000000
-dusk.normDWDLfgcolor:              #000000
-dusk.normDWDLCfgcolor:             #000000
-dusk.normSPRLfgcolor:              #000000
-dusk.normSPRLCfgcolor:             #000000
-dusk.normTTMIfgcolor:              #000000
-dusk.normTTMICfgcolor:             #000000
-dusk.normfloatfgcolor:             #000000
-dusk.selTTBfgcolor:                #000000
-dusk.selLTRfgcolor:                #000000
-dusk.selMONOfgcolor:               #000000
-dusk.selGRIDCfgcolor:              #000000
-dusk.selGRIDfgcolor:               #000000
-dusk.selGRD1fgcolor:               #000000
-dusk.selGRD2fgcolor:               #000000
-dusk.selGRDMfgcolor:               #000000
-dusk.selHGRDfgcolor:               #000000
-dusk.selDWDLfgcolor:               #000000
-dusk.selDWDLCfgcolor:              #000000
-dusk.selSPRLfgcolor:               #000000
-dusk.selSPRLCfgcolor:              #000000
-dusk.selTTMIfgcolor:               #000000
-dusk.selTTMICfgcolor:              #000000
-dusk.selfloatfgcolor:              #000000
+#ifdef FLOAT_NORM_FG_COLOR
+dusk.norm.float.fg.color:             FLOAT_NORM_FG_COLOR
+#endif
+#ifdef FLOAT_SEL_FG_COLOR
+dusk.sel.float.fg.color:              FLOAT_SEL_FG_COLOR
+#endif
 
-! == dusk dmenu colors ===
-dusk.dmenunormfgcolor:             #000000
-dusk.dmenunormbgcolor:             #000000
-dusk.dmenuselfgcolor:              #000000
-dusk.dmenuselbgcolor:              #000000
+! === dusk background colors ===
+dusk.norm.bg.color:                   NORM_BG_COLOR
+dusk.norm.border.color:               BORDER
+dusk.sel.*.color:                     SEL_BG_COLOR
+dusk.titlenorm.*.color:               TITLE_NORM_BG_COLOR
+dusk.titlesel.*.color:                TITLE_SEL_BG_COLOR
+dusk.wsnorm.*.color:                  WS_NORM_BG_COLOR
+dusk.wsvis.*.color:                   WS_VIS_BG_COLOR
+dusk.wssel.*.color:                   WS_SEL_BG_COLOR
+dusk.wsocc.*.color:                   WS_OCC_BG_COLOR
+dusk.hidnorm.*.color:                 HID_NORM_BG_COLOR
+dusk.hidsel.*.color:                  HID_SEL_BG_COLOR
+dusk.urg.*.color:                     URGENT_BG_COLOR
+dusk.marked.*.color:                  MARKED_BG_COLOR
+dusk.scratchnorm.*.color:             SCRATCH_NORM_BG_COLOR
+dusk.scratchsel.*.color:              SCRATCH_SEL_BG_COLOR
+dusk.act.*.*.color:                   TITLE_NORM_BG_COLOR
+dusk.norm.*.*.color:                  TITLE_NORM_BG_COLOR
+dusk.sel.*.*.color:                   TITLE_SEL_BG_COLOR
+
+#ifdef FLOAT_NORM_BG_COLOR
+dusk.norm.float.*.color:              FLOAT_NORM_BG_COLOR
+#endif
+#ifdef FLOAT_SEL_BG_COLOR
+dusk.sel.float.*.color:               FLOAT_SEL_BG_COLOR
+#endif
+
+! === dmenu colors ===
+dmenu.norm.fg.color:                  BASE_FOREGROUND
+dmenu.norm.bg.color:                  BASE_BACKGROUND
+dmenu.sel.fg.color:                   SELECTED_FOREGROUND
+dmenu.sel.bg.color:                   SELECTED_BACKGROUND
+dmenu.border.bg.color:                BORDER
+dmenu.out.fg.color:                   MARKED_FG_COLOR
+dmenu.out.bg.color:                   MARKED_BG_COLOR
+dmenu.prompt.fg.color:                TITLE_NORM_FG_COLOR
+dmenu.prompt.bg.color:                TITLE_NORM_BG_COLOR
+dmenu.adjacent.fg.color:              SELECTED_FOREGROUND
+dmenu.adjacent.bg.color:              SELECTED_BACKGROUND
+dmenu.selhl.fg.color:                 URGENT_FG_COLOR
+dmenu.selhl.bg.color:                 URGENT_BG_COLOR
+dmenu.normhl.fg.color:                MARKED_FG_COLOR
+dmenu.normhl.bg.color:                MARKED_BG_COLOR
+#ifdef WARNING_FG_COLOR
+dmenu.hp.fg.color:                    WARNING_FG_COLOR
+#endif
+#ifdef WARNING_BG_COLOR
+dmenu.hp.bg.color:                    WARNING_BG_COLOR
+#endif
+
+! === xmenu colors ===
+xmenu.selforeground:                  SELECTED_FOREGROUND
+xmenu.selbackground:                  SELECTED_BACKGROUND
+xmenu.border:                         BORDER
+xmenu.separator:                      BORDER
+
+! === slock colors ===
+slock.background:                     BASE_BACKGROUND
+slock.locked:                         BASE_BACKGROUND
+slock.input:                          SELECTED_BACKGROUND
+slock.failed:                         URGENT_BG_COLOR
+#ifdef WARNING_BG_COLOR
+slock.capslock:                       WARNING_BG_COLOR
+#endif
+
+! === sxiv colors ===
+Sxiv.mark:                            MARKED_BG_COLOR
+Sxiv.barforeground:                   SELECTED_FOREGROUND
+Sxiv.barbackground:                   SELECTED_BACKGROUND
+
+! === nsxiv colors ===
+
+Nsxiv.mark.foreground:                MARKED_BG_COLOR
+Nsxiv.window.foreground:              BASE_FOREGROUND
+Nsxiv.window.background:              BASE_BACKGROUND
+Nsxiv.bar.foreground:                 SELECTED_FOREGROUND
+Nsxiv.bar.background:                 SELECTED_BACKGROUND
+
+! === pmenu colors ===
+pmenu.foreground:                     BASE_FOREGROUND
+pmenu.background:                     BASE_BACKGROUND
+pmenu.selbackground:                  SELECTED_BACKGROUND
+pmenu.selforeground:                  SELECTED_FOREGROUND
+pmenu.border:                         BORDER
+pmenu.separator:                      SELECTED_BACKGROUND
+
+! === dunst colors ===
+dunst.colors.low.fg:                  SELECTED_FOREGROUND
+dunst.colors.low.bg:                  SELECTED_BACKGROUND
+dunst.colors.low.frame:               BORDER
+dunst.colors.low.highlight:           MARKED_BG_COLOR
+dunst.colors.norm.fg:                 BASE_FOREGROUND
+dunst.colors.norm.bg:                 BASE_BACKGROUND
+dunst.colors.norm.frame:              BORDER
+dunst.colors.norm.highlight:          MARKED_BG_COLOR
+dunst.colors.crit.fg:                 URGENT_FG_COLOR
+dunst.colors.crit.bg:                 URGENT_BG_COLOR
+dunst.colors.crit.frame:              BORDER
+dunst.colors.crit.highlight:          MARKED_BG_COLOR
+dunst.colors.frame_color:             BORDER
+
+! === rofi menu colors ===
+! State:           bg,          fg,          bgalt,       hlbg,        hlfg
+!rofi.color-normal: BASE_BACKGROUND, BASE_FOREGROUND, BASE_BACKGROUND, SELECTED_BACKGROUND,  SELECTED_FOREGROUND
+!rofi.color-urgent: URGENT_BG_COLOR,  URGENT_FG_COLOR,  URGENT_BG_COLOR,  WARNING_BG_COLOR, WARNING_FG_COLOR
+!rofi.color-active: SELECTED_BACKGROUND,  SELECTED_FOREGROUND,  URGENT_BG_COLOR,  MARKED_BG_COLOR,  MARKED_FG_COLOR
+
+!                  background,  border
+!rofi.color-window: BASE_BACKGROUND, BORDER

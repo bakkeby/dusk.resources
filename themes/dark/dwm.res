@@ -1,0 +1,27 @@
+#define COLOR0 #222222
+#define COLOR1 #005577
+#define COLOR2 #116688
+#define COLOR3 #4499bb
+#define COLOR4 #3388aa
+#define COLOR5 #227799
+#define COLOR6 #55aaee
+#define COLOR7 #66bbff
+#define COLOR8 #eeeeee
+#define COLOR9 #dddddd
+#define COLOR10 #cccccc
+#define COLOR11 #bbbbbb
+#define COLOR12 #aaaaaa
+#define COLOR13 #555555
+#define COLOR14 #99500C
+#define COLOR15 #bbbbbb
+#define CURSOR #bbbbbb
+
+#define BASE_FOREGROUND #bbbbbb
+#define BASE_BACKGROUND #222222
+#define SELECTED_FOREGROUND #eeeeee
+#define SELECTED_BACKGROUND #005577
+#define MARKED_FG_COLOR #222222
+#define MARKED_BG_COLOR #bbbbbb
+#define WARNING #99500C
+#define URGENT_FG_COLOR #005577
+#define URGENT_BG_COLOR #eeeeee
