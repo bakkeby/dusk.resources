@@ -1,4 +1,4 @@
-#include "dusk.xresources.defaults.txt"
+#include "defaults.txt"
 
 ! === terminal colors ===
 #ifdef COLOR0
@@ -212,12 +212,3 @@ dunst.colors.crit.bg:                 URGENT_BG_COLOR
 dunst.colors.crit.frame:              BORDER
 dunst.colors.crit.highlight:          MARKED_BG_COLOR
 dunst.colors.frame_color:             BORDER
-
-! === rofi menu colors ===
-! State:           bg,          fg,          bgalt,       hlbg,        hlfg
-!rofi.color-normal: BASE_BACKGROUND, BASE_FOREGROUND, BASE_BACKGROUND, SELECTED_BACKGROUND,  SELECTED_FOREGROUND
-!rofi.color-urgent: URGENT_BG_COLOR,  URGENT_FG_COLOR,  URGENT_BG_COLOR,  WARNING_BG_COLOR, WARNING_FG_COLOR
-!rofi.color-active: SELECTED_BACKGROUND,  SELECTED_FOREGROUND,  URGENT_BG_COLOR,  MARKED_BG_COLOR,  MARKED_FG_COLOR
-
-!                  background,  border
-!rofi.color-window: BASE_BACKGROUND, BORDER
