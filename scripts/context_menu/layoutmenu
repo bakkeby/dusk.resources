@@ -7,23 +7,23 @@ fi
 bind_layout() {
 	cat << EOF | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/"
 #INDENT#Layout
-#INDENT#	tile	#IPCCMD# run_command setlayoutex 0
-#INDENT#	columns	#IPCCMD# run_command setlayoutex 1
-#INDENT#	rows	#IPCCMD# run_command setlayoutex 2
-#INDENT#	monocle	#IPCCMD# run_command setlayoutex 3
-#INDENT#	col	#IPCCMD# run_command setlayoutex 4
-#INDENT#	floating master	#IPCCMD# run_command setlayoutex 5
-#INDENT#	deck	#IPCCMD# run_command setlayoutex 6
-#INDENT#	bstack	#IPCCMD# run_command setlayoutex 7
-#INDENT#	bstackhoriz	#IPCCMD# run_command setlayoutex 8
-#INDENT#	bstackgrid	#IPCCMD# run_command setlayoutex 9
-#INDENT#	centeredmaster	#IPCCMD# run_command setlayoutex 10
-#INDENT#	centeredmaster horiz	#IPCCMD# run_command setlayoutex 11
-#INDENT#	gappless grid	#IPCCMD# run_command setlayoutex 12
-#INDENT#	fibonacci dwindle	#IPCCMD# run_command setlayoutex 13
-#INDENT#	fibonacci spiral	#IPCCMD# run_command setlayoutex 14
-#INDENT#	tatami layout	#IPCCMD# run_command setlayoutex 15
-#INDENT#	floating layout	#IPCCMD# run_command setlayoutex 16
+#INDENT#	tile	#IPCCMD# run_command setlayout 0
+#INDENT#	columns	#IPCCMD# run_command setlayout 1
+#INDENT#	rows	#IPCCMD# run_command setlayout 2
+#INDENT#	monocle	#IPCCMD# run_command setlayout 3
+#INDENT#	col	#IPCCMD# run_command setlayout 4
+#INDENT#	floating master	#IPCCMD# run_command setlayout 5
+#INDENT#	deck	#IPCCMD# run_command setlayout 6
+#INDENT#	bstack	#IPCCMD# run_command setlayout 7
+#INDENT#	bstackhoriz	#IPCCMD# run_command setlayout 8
+#INDENT#	bstackgrid	#IPCCMD# run_command setlayout 9
+#INDENT#	centeredmaster	#IPCCMD# run_command setlayout 10
+#INDENT#	centeredmaster horiz	#IPCCMD# run_command setlayout 11
+#INDENT#	gappless grid	#IPCCMD# run_command setlayout 12
+#INDENT#	fibonacci dwindle	#IPCCMD# run_command setlayout 13
+#INDENT#	fibonacci spiral	#IPCCMD# run_command setlayout 14
+#INDENT#	tatami layout	#IPCCMD# run_command setlayout 15
+#INDENT#	floating layout	#IPCCMD# run_command setlayout 16
 #INDENT#Flextile
 #INDENT#	Split
 #INDENT#		No Split	#IPCCMD# run_command setlayoutaxisex 0
