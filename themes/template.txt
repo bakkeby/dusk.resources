@@ -163,10 +163,12 @@ dmenu.hp.bg.color:                    WARNING_BG_COLOR
 #endif
 
 ! === xmenu colors ===
+xmenu.background_color:               BASE_BACKGROUND
+xmenu.foreground_color:               BASE_FOREGROUND
 xmenu.selforeground:                  SELECTED_FOREGROUND
 xmenu.selbackground:                  SELECTED_BACKGROUND
 xmenu.border:                         BORDER
-xmenu.separator:                      BORDER
+xmenu.separator:                      BASE_FOREGROUND
 
 ! === slock colors ===
 slock.background:                     BASE_BACKGROUND
