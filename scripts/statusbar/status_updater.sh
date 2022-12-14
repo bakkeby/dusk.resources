@@ -11,11 +11,23 @@ for pid in $(pidof -x "status_updater.sh"); do
 	fi
 done
 
-# Add an artificial sleep to wait for the IPC handler to be ready to process requests
-sleep 0.5
+wait_for_ipc_handler () {
+	seconds=$1
+
+	for (( d=1; d<=2*${seconds}; d++ ))
+	do
+		sleep 0.5
+		duskc --ignore-reply get_monitors 2>/dev/null 1>&2
+		if [ $? = 0 ]; then
+			return
+		fi
+	done
+
+	echo "Failed to reach IPC handler, bailing"
+	exit
+}
 
 SETSTATUS="duskc --ignore-reply run_command setstatus"
-
 secs=0
 
 while true; do
@@ -23,8 +35,8 @@ while true; do
 	$SETSTATUS 0 "$($DIR/clock)"
 
 	if [ $? != 0 ]; then
-		echo "Failed to set status, bailing"
-		exit
+		wait_for_ipc_handler 30
+		secs=0
 	fi
 
 	$SETSTATUS 2 "$($DIR/mem)" &
