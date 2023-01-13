@@ -85,6 +85,9 @@ dusk.color15: SCRATCH_SEL_BG_COLOR
 ! === general colors ===
 *.foreground: BASE_FOREGROUND
 *.background: BASE_BACKGROUND
+#ifdef CURSOR
+*.cursor: CURSOR
+#endif
 
 ! === dusk foreground colors ===
 dusk.norm.fg.color:                   NORM_FG_COLOR
