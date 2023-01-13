@@ -15,13 +15,13 @@
 #define COLOR3  #B24629
 #define COLOR4  #EE592E
 #define COLOR5  #82A0C2
-#define COLOR6  #3C3642
-#define COLOR7  #48283D
-#define COLOR8  #D9CFC5
+#define COLOR6  #D4AE6D
+#define COLOR7  #BDC3B7
+#define COLOR8  #48283D
 #define COLOR9  #FCB7A8
 #define COLOR10 #758086
 #define COLOR11 #8C7178
 #define COLOR12 #F6C58B
 #define COLOR13 #BDC3B7
 #define COLOR14 #B0553A
-#define COLOR15 #A23419
+#define COLOR15 #BDC3B7
