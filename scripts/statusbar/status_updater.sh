@@ -36,7 +36,6 @@ while true; do
 
 	if [ $? != 0 ]; then
 		wait_for_ipc_handler 30
-		secs=0
 	fi
 
 	$SETSTATUS 2 "$($DIR/mem)" &
@@ -48,9 +47,15 @@ while true; do
 		$SETSTATUS 9 "$($DIR/kblayout)" &
 	fi
 
-	if [ $((secs % 3600)) = 0 ]; then
+	# Update these once after 1 minute, i.e. hourly
+	if [ $secs = 60 ]; then
 		$SETSTATUS 4 "$($DIR/sysupdates)" &
 		$SETSTATUS 7 "$($DIR/statusbutton)" &
+	fi
+
+	# Restart script every hour
+	if [ $secs = 3600 ]; then
+		exec ${BASH_SOURCE[0]}
 	fi
 
 	((secs+=1))
