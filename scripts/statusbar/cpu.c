@@ -113,8 +113,9 @@ static void
 printStatus2DOutput(
 	unsigned long long int (*cData)[COLS],
 	unsigned long long int (*pData)[COLS],
-	int maxHeight,
+	int height,
 	int lrpad,
+	int tbpad,
 	char *textcol,
 	char *oddcol,
 	char *evencol
@@ -124,6 +125,7 @@ printStatus2DOutput(
 	int pct;
 	x = lrpad;
 	w = 2;
+	int maxHeight = height - tbpad;
 
 	for (c = 0; c < MAX_CPUS; c++) {
 		if (!cData[c][0])
@@ -147,7 +149,7 @@ printStatus2DOutput(
 			continue;
 		}
 
-		h = (maxHeight - 2) * (1.0 - (double)(cIdle - pIdle) / (double)(cTotal - pTotal));
+		h = (maxHeight - tbpad) * (1.0 - (double)(cIdle - pIdle) / (double)(cTotal - pTotal));
 		y = maxHeight - h;
 
 		printf("%s^r%d,%d,%d,%d^", c % 2 ? evencol : oddcol, x, y, w, h);
@@ -178,6 +180,7 @@ usage()
 	printf(ofmt, "--evencolor", "status2d colour for even bars, defaults to ^C2^");
 	printf(ofmt, "--textcolor", "status2d text colour, not used by default");
 	printf(ofmt, "--lrpad", "left/right padding, defaults to 6 pixels");
+	printf(ofmt, "--tbpad", "top/bottom padding, defaults to 2 pixels");
 	printf(ofmt, "-h, --height", "specifies the height of the bar");
 	puts("");
 }
@@ -186,8 +189,9 @@ int
 main(int argc, char *argv[])
 {
 	int i, p, c, cpu_num;
-	int height = 16;
+	int height = 18;
 	int lrpad = 6;
+	int tbpad = 2; /* top and bottom padding for the generated status2d text */
 	char *oddcol = "^C1^";
 	char *evencol = "^C2^";
 	char *textcol = "";
@@ -208,6 +212,8 @@ main(int argc, char *argv[])
 			textcol = argv[++i];
 		} else if arg("--lrpad") {
 			lrpad = strtol(argv[++i], NULL, 10);
+		} else if arg("--tbpad") {
+			tbpad = strtol(argv[++i], NULL, 10);
 		} else if (arg("-h") || arg("--height")) {
 			height = strtol(argv[++i], NULL, 10);
 		}
@@ -231,6 +237,6 @@ main(int argc, char *argv[])
 	if (p == -1)
 		exit(0);
 
-	printStatus2DOutput(cData, pData, height, lrpad, textcol, oddcol, evencol);
+	printStatus2DOutput(cData, pData, height, lrpad, tbpad, textcol, oddcol, evencol);
 	return 0;
 }
