@@ -1,6 +1,49 @@
 #!/bin/bash
-#COLOR=^c#FFF7D4^
-COLOR=
+
+# Defaults
+EVENCOLOR="^C1^"
+ODDCOLOR="^C1^"
+TEXTCOLOR="^d^"
+TBPAD=4
+HEIGHT=$BAR_HEIGHT
+TMPFILE="/tmp/.${USER}.statusbar.volume.${DISPLAY}.dat~"
+
+if [ -f $TMPFILE ]; then
+	source $TMPFILE
+fi
+
+while (( $# )); do
+	case "$1" in
+	-h|--height)
+		shift
+		HEIGHT=$1
+		shift
+		;;
+	--evencolor)
+		shift
+		EVENCOLOR=$1
+		shift
+		;;
+	--oddcolor)
+		shift
+		ODDCOLOR=$1
+		shift
+		;;
+	--textcolor)
+		shift
+		TEXTCOLOR=$1
+		shift
+		;;
+	--tbpad)
+		shift
+		TBPAD=$1
+		shift
+		;;
+	esac
+done
+
+echo "EVENCOLOR='$EVENCOLOR';ODDCOLOR='$ODDCOLOR';TEXTCOLOR='$TEXTCOLOR';HEIGHT='$HEIGHT';TBPAD='$TBPAD'" > $TMPFILE
+
 if [[ $(pacmd list-sinks | grep -c "muted: yes") > 0 ]]; then
 	echo "🔇"
 	exit
@@ -25,14 +68,4 @@ if [[ -z $VOLUME ]]; then
 	exit
 fi
 
-VOLUME_BAR=""
-(( $VOLUME > 01 )) && X=0 && VOLUME_BAR+="^C10^^r${X},14,2,02^"
-(( $VOLUME > 14 )) && X=3 && VOLUME_BAR+="^C9^^r${X},12,2,04^"
-(( $VOLUME > 28 )) && X=6 && VOLUME_BAR+="^C10^^r${X},10,2,06^"
-(( $VOLUME > 42 )) && X=9 && VOLUME_BAR+="^C9^^r${X},08,2,08^"
-(( $VOLUME > 56 )) && X=12 && VOLUME_BAR+="^C10^^r${X},06,2,10^"
-(( $VOLUME > 70 )) && X=15 && VOLUME_BAR+="^C9^^r${X},04,2,12^"
-(( $VOLUME > 84 )) && X=18 && VOLUME_BAR+="^C10^^r${X},02,2,14^"
-
-VOLUME_BAR+="^d^^f$(($X+8))^"
-echo "${VOLUME_BAR}${COLOR}${VOLUME}%^d^"
+${HOME}/bin/statusbar/status2d_volume -p $VOLUME -h $HEIGHT --textcolor "$TEXTCOLOR" --oddcolor "$ODDCOLOR" --evencolor "$EVENCOLOR"
