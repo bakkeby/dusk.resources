@@ -189,7 +189,8 @@ int
 main(int argc, char *argv[])
 {
 	int i, p, c, cpu_num;
-	int height = 18;
+	const char *barHeight = getenv("BAR_HEIGHT");
+	int height = barHeight ? atoi(barHeight) : 20;
 	int lrpad = 6;
 	int tbpad = 2; /* top and bottom padding for the generated status2d text */
 	char *oddcol = "^C1^";
