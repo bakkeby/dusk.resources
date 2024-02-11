@@ -4,8 +4,8 @@ You may want to consider placing these under `~/.config/dusk/` (or a more famili
 adding something like this to your `~/.Xresources` file:
 
 ```
-#include "~/.config/dusk/themes/dark/dread.res"
-#include "~/.config/dusk/themes/template.txt"
+#include "/home/username/.config/dusk/themes/dark/dread.res"
+#include "/home/username/.config/dusk/themes/template.txt"
 ```
 
 The `.res` files contain pre-processor definitions for the colours used (essentially giving them
