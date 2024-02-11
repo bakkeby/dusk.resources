@@ -10,22 +10,23 @@
 #define URGENT_BG_COLOR #A23419
 
 #define COLOR0  #2E2A39
-#define COLOR1  #82363A
+#define COLOR1  #B44B50
 #define COLOR2  #D4AE6D
 #define COLOR3  #B24629
 #define COLOR4  #EE592E
 #define COLOR5  #82A0C2
-#define COLOR6  #D4AE6D
+#define COLOR6  #C49E5D
 #define COLOR7  #BDC3B7
-#define COLOR8  #48283D
-#define COLOR9  #FCB7A8
+#define COLOR8  #8C7178
+#define COLOR9  #D4AE6D
 #define COLOR10 #758086
 #define COLOR11 #8C7178
 #define COLOR12 #F6C58B
 #define COLOR13 #BDC3B7
 #define COLOR14 #B0553A
 #define COLOR15 #BDC3B7
-#define CURSOR #D4AE6D
+#define CURSOR  #D4AE6D
 
 dusk.norm.float.border.color: #643b3e
 dusk.act.float.border.color: #643b3e
+
