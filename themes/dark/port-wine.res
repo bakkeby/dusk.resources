@@ -29,4 +29,4 @@
 
 dusk.norm.float.border.color: #643b3e
 dusk.act.float.border.color: #643b3e
-
+dusk.scratchnorm.border.color: #643b3e
