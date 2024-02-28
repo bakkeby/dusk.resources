@@ -1,13 +1,13 @@
 #define COLOR0 #180A13
 #define COLOR1 #6F3A5C
-#define COLOR2 #5E294B
+#define COLOR2 #9b447c
 #define COLOR3 #b97711
 #define COLOR4 #3d5cb6
-#define COLOR5 #4C314C
-#define COLOR6 #550055
+#define COLOR5 #885788
+#define COLOR6 #833c73
 #define COLOR7 #FFF7D4
 #define COLOR8 #222222
-#define COLOR9 #d10f3f
+#define COLOR9 #b52a2c
 #define COLOR10 #507711
 #define COLOR11 #ECB820
 #define COLOR12 #6b6bd4
@@ -15,7 +15,7 @@
 #define COLOR14 #004444
 #define COLOR15 #fffefe
 
-#define BASE_BACKGROUND #180A13
+#define BASE_BACKGROUND #222222
 #define BASE_FOREGROUND #BE89AE
 #define SELECTED_FOREGROUND #FFF7D4
 #define SELECTED_BACKGROUND #440000
@@ -24,6 +24,9 @@
 
 ! === dusk foreground colors ===
 #define TITLE_NORM_FG_COLOR #C6BDBD
+#define TITLE_NORM_BG_COLOR #440000
+#define TITLE_SEL_FG_COLOR #C6BDBD
+#define TITLE_SEL_BG_COLOR #550000
 #define WS_VIS_FG_COLOR BASE_FOREGROUND
 #define WS_SEL_FG_COLOR #D8B2CD
 #define HID_NORM_FG_COLOR #c278b6
@@ -40,11 +43,11 @@
 #define HID_NORM_BG_COLOR #222222
 #define HID_SEL_BG_COLOR #111111
 #define URGENT_BG_COLOR #222222
+#define URGENT_BORDER_COLOR #d10f3f
 #define MARKED_BG_COLOR #ECB820
 #define SCRATCH_NORM_BG_COLOR #664C67
 #define SCRATCH_SEL_BG_COLOR #77547E
 
-dusk.urg.border.color: #d10f3f
 dusk.act.TTB.bg.color: #440000
 dusk.act.TTB.border.color: #440000
 dusk.act.LTR.bg.color: #440044

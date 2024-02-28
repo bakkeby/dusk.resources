@@ -27,6 +27,5 @@
 #define COLOR15 #BDC3B7
 #define CURSOR  #D4AE6D
 
-dusk.norm.float.border.color: #643b3e
-dusk.act.float.border.color: #643b3e
-dusk.scratchnorm.border.color: #643b3e
+#define FLOAT_NORM_BORDER_COLOR #643b3e
+#define SCRATCH_NORM_BORDER_COLOR #643b3e

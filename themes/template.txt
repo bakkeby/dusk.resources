@@ -1,85 +1,28 @@
 #include "defaults.txt"
 
 ! === terminal colors ===
+! Change the scope to "dusk" if you do not want the template
+! to interfere with global colors (e.g. terminals).
+#define COLOR_SCOPE *
+!#define COLOR_SCOPE dusk
+
 #ifdef COLOR0
-*.color0: COLOR0
-#else
-dusk.color0: BASE_BACKGROUND
-#endif
-#ifdef COLOR1
-*.color1: COLOR1
-#else
-dusk.color1: WARNING_BG_COLOR
-#endif
-#ifdef COLOR2
-*.color2: COLOR2
-#else
-dusk.color2: MARKED_FG_COLOR
-#endif
-#ifdef COLOR3
-*.color3: COLOR3
-#else
-dusk.color3: SCRATCH_NORM_BG_COLOR
-#endif
-#ifdef COLOR4
-*.color4: COLOR4
-#else
-dusk.color4: MARKED_BG_COLOR
-#endif
-#ifdef COLOR5
-*.color5: COLOR5
-#else
-dusk.color5: HID_SEL_BG_COLOR
-#endif
-#ifdef COLOR6
-*.color6: COLOR6
-#else
-dusk.color6: URGENT_BG_COLOR
-#endif
-#ifdef COLOR7
-*.color7: COLOR7
-#else
-dusk.color7: SELECTED_BACKGROUND
-#endif
-#ifdef COLOR8
-*.color8: COLOR8
-#else
-dusk.color8: BASE_FOREGROUND
-#endif
-#ifdef COLOR9
-*.color9: COLOR9
-#else
-dusk.color9: SELECTED_FOREGROUND
-#endif
-#ifdef COLOR10
-*.color10: COLOR10
-#else
-dusk.color10: WS_NORM_BG_COLOR
-#endif
-#ifdef COLOR11
-*.color11: COLOR11
-#else
-dusk.color11: WS_SEL_BG_COLOR
-#endif
-#ifdef COLOR12
-*.color12: COLOR12
-#else
-dusk.color12: TITLE_NORM_BG_COLOR
-#endif
-#ifdef COLOR13
-*.color13: COLOR13
-#else
-dusk.color13: TITLE_SEL_BG_COLOR
-#endif
-#ifdef COLOR14
-*.color14: COLOR14
-#else
-dusk.color14: SCRATCH_NORM_BG_COLOR
-#endif
-#ifdef COLOR15
-*.color15: COLOR15
-#else
-dusk.color15: SCRATCH_SEL_BG_COLOR
+COLOR_SCOPE.color0: COLOR0
+COLOR_SCOPE.color1: COLOR1
+COLOR_SCOPE.color2: COLOR2
+COLOR_SCOPE.color3: COLOR3
+COLOR_SCOPE.color4: COLOR4
+COLOR_SCOPE.color5: COLOR5
+COLOR_SCOPE.color6: COLOR6
+COLOR_SCOPE.color7: COLOR7
+COLOR_SCOPE.color8: COLOR8
+COLOR_SCOPE.color9: COLOR9
+COLOR_SCOPE.color10: COLOR10
+COLOR_SCOPE.color11: COLOR11
+COLOR_SCOPE.color12: COLOR12
+COLOR_SCOPE.color13: COLOR13
+COLOR_SCOPE.color14: COLOR14
+COLOR_SCOPE.color15: COLOR15
 #endif
 
 ! === general colors ===
@@ -91,22 +34,18 @@ dusk.color15: SCRATCH_SEL_BG_COLOR
 
 ! === dusk foreground colors ===
 dusk.norm.fg.color:                   NORM_FG_COLOR
-dusk.sel.fg.color:                    SEL_FG_COLOR
 dusk.titlenorm.fg.color:              TITLE_NORM_FG_COLOR
 dusk.titlesel.fg.color:               TITLE_SEL_FG_COLOR
-dusk.wsnorm.fg.color:                 WS_NORM_FG_COLOR
-dusk.wsvis.fg.color:                  WS_VIS_FG_COLOR
-dusk.wssel.fg.color:                  WS_SEL_FG_COLOR
-dusk.wsocc.fg.color:                  WS_OCC_FG_COLOR
+dusk.scratchnorm.fg.color:            SCRATCH_NORM_FG_COLOR
+dusk.scratchsel.fg.color:             SCRATCH_SEL_FG_COLOR
 dusk.hidnorm.fg.color:                HID_NORM_FG_COLOR
 dusk.hidsel.fg.color:                 HID_SEL_FG_COLOR
 dusk.urg.fg.color:                    URGENT_FG_COLOR
 dusk.marked.fg.color:                 MARKED_FG_COLOR
-dusk.scratchnorm.fg.color:            SCRATCH_NORM_FG_COLOR
-dusk.scratchsel.fg.color:             SCRATCH_SEL_FG_COLOR
-dusk.norm.*.fg.color:                 TITLE_NORM_FG_COLOR
-dusk.act.*.fg.color:                  TITLE_NORM_FG_COLOR
-dusk.sel.*.fg.color:                  TITLE_SEL_FG_COLOR
+dusk.wsnorm.fg.color:                 WS_NORM_FG_COLOR
+dusk.wsvis.fg.color:                  WS_VIS_FG_COLOR
+dusk.wssel.fg.color:                  WS_SEL_FG_COLOR
+dusk.wsocc.fg.color:                  WS_OCC_FG_COLOR
 
 #ifdef FLOAT_NORM_FG_COLOR
 dusk.norm.float.fg.color:             FLOAT_NORM_FG_COLOR
@@ -117,29 +56,33 @@ dusk.sel.float.fg.color:              FLOAT_SEL_FG_COLOR
 
 ! === dusk background colors ===
 dusk.norm.bg.color:                   NORM_BG_COLOR
-dusk.norm.border.color:               BORDER
-dusk.sel.*.color:                     SEL_BG_COLOR
-dusk.titlenorm.*.color:               TITLE_NORM_BG_COLOR
-dusk.titlesel.*.color:                TITLE_SEL_BG_COLOR
-dusk.wsnorm.*.color:                  WS_NORM_BG_COLOR
-dusk.wsvis.*.color:                   WS_VIS_BG_COLOR
-dusk.wssel.*.color:                   WS_SEL_BG_COLOR
-dusk.wsocc.*.color:                   WS_OCC_BG_COLOR
-dusk.hidnorm.*.color:                 HID_NORM_BG_COLOR
-dusk.hidsel.*.color:                  HID_SEL_BG_COLOR
-dusk.urg.*.color:                     URGENT_BG_COLOR
-dusk.marked.*.color:                  MARKED_BG_COLOR
-dusk.scratchnorm.*.color:             SCRATCH_NORM_BG_COLOR
-dusk.scratchsel.*.color:              SCRATCH_SEL_BG_COLOR
-dusk.act.*.*.color:                   TITLE_NORM_BG_COLOR
-dusk.norm.*.*.color:                  TITLE_NORM_BG_COLOR
-dusk.sel.*.*.color:                   TITLE_SEL_BG_COLOR
+dusk.titlenorm.bg.color:              TITLE_NORM_BG_COLOR
+dusk.titlesel.bg.color:               TITLE_SEL_BG_COLOR
+dusk.scratchnorm.bg.color:            SCRATCH_NORM_BG_COLOR
+dusk.scratchsel.bg.color:             SCRATCH_SEL_BG_COLOR
+dusk.hidnorm.bg.color:                HID_NORM_BG_COLOR
+dusk.hidsel.bg.color:                 HID_SEL_BG_COLOR
+dusk.urg.bg.color:                    URGENT_BG_COLOR
+dusk.marked.bg.color:                 MARKED_BG_COLOR
+dusk.wsnorm.bg.color:                 WS_NORM_BG_COLOR
+dusk.wsvis.bg.color:                  WS_VIS_BG_COLOR
+dusk.wssel.bg.color:                  WS_SEL_BG_COLOR
+dusk.wsocc.bg.color:                  WS_OCC_BG_COLOR
+
+! === dusk border colors ===
+dusk.norm.border.color:               NORM_BORDER_COLOR
+dusk.titlenorm.border.color:          TITLE_NORM_BORDER_COLOR
+dusk.titlesel.border.color:           TITLE_SEL_BORDER_COLOR
+dusk.scratchnorm.border.color:        SCRATCH_NORM_BORDER_COLOR
+dusk.scratchsel.border.color:         SCRATCH_SEL_BORDER_COLOR
+dusk.urg.border.color:                URGENT_BORDER_COLOR
+dusk.marked.border.color:             MARKED_BORDER_COLOR
 
 #ifdef FLOAT_NORM_BG_COLOR
-dusk.norm.float.*.color:              FLOAT_NORM_BG_COLOR
+dusk.norm.float.bg.color:             FLOAT_NORM_BG_COLOR
 #endif
 #ifdef FLOAT_SEL_BG_COLOR
-dusk.sel.float.*.color:               FLOAT_SEL_BG_COLOR
+dusk.sel.float.bg.color:              FLOAT_SEL_BG_COLOR
 #endif
 
 ! === dmenu colors ===
@@ -163,6 +106,13 @@ dmenu.hp.fg.color:                    WARNING_FG_COLOR
 #endif
 #ifdef WARNING_BG_COLOR
 dmenu.hp.bg.color:                    WARNING_BG_COLOR
+#endif
+
+#ifdef FLOAT_NORM_BORDER_COLOR
+dusk.norm.float.border.color:         FLOAT_NORM_BORDER_COLOR
+#endif
+#ifdef FLOAT_SEL_BORDER_COLOR
+dusk.sel.float.border.color:          FLOAT_SEL_BORDER_COLOR
 #endif
 
 ! === xmenu colors ===
