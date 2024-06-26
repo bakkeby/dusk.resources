@@ -22,7 +22,7 @@ bind_settingsmenu() {
 
 		{
 			gsub(/^  |"|,/, "");
-			print "#INDENT#	" $1 ": " $2 "\t #IPCCMD# run_command toggle \"" $1 "\""
+			print "#INDENT#	" $1 ": " $2 "\t #IPCCMD# run_command toggle " $1
 		}
 	' | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/"
 }
