@@ -21,7 +21,7 @@ bind_graphics() {
 
 bind_terminals() {
 	local COMMANDS=""
-	for COMMAND in alacritty gnome-terminal st terminator xterm; do
+	for COMMAND in alacritty gnome-terminal kitty st terminator wezterm xterm; do
 		[ $(command -v ${COMMAND}) ] && COMMANDS+="${1}\t${COMMAND}\n"
 	done
 
