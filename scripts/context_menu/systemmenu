@@ -1,8 +1,6 @@
 #!/bin/bash
 
-if [ -z $IPCCMD ]; then
-	IPCCMD=duskc
-fi
+test -z "$IPCCMD" && IPCCMD=duskc
 
 bind_system() {
 	cat << EOF | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/"
@@ -13,8 +11,12 @@ bind_system() {
 EOF
 }
 
+# Suspend	systemctl suspend
+# Hybrid Sleep    systemctl hybrid-sleep
+# Hibernate   systemctl hibernate
+
 # Allow the above menu to be sourced by other scripts by setting
 # the SOURCE_MENU environment variable.
-if [ -z $SOURCE_MENU ]; then
-	$(bind_system | xmenu)
+if [ -z "$SOURCE_MENU" ]; then
+	eval "$(bind_system '' | xmenu)"
 fi

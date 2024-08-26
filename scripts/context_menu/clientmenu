@@ -1,22 +1,26 @@
 #!/bin/bash
 
-if [ -z $IPCCMD ]; then
-	IPCCMD=duskc
-fi
-
-IPCCMD=duskc
+test -z "$IPCCMD" && IPCCMD=duskc
 
 bind_clientmenu() {
 	WINID=$($IPCCMD get_monitors | jq '.[] | select(.is_selected == true) | .clients.selected')
 	JSON=$($IPCCMD get_client $WINID)
-	NAME=$(echo $JSON | jq '.name' | sed 's/"//g')
+	NAME=$(echo "$JSON" | jq '.name' | sed 's/"//g')
 
-	echo $JSON | jq '.flags' | awk -F":" -vNAME="$NAME" '
+	echo "$JSON" | jq '.flags' | awk -F":" -vNAME="$NAME" '
 		BEGIN {
 			print "#INDENT#" NAME
-			print "#INDENT#\tKill Client\t#IPCCMD# run_command killclient"
-			print "#INDENT#\tToggle Floating\t#IPCCMD# run_command togglefloating"
 			print "#INDENT#"
+			print "#INDENT#🗶 Close\t#IPCCMD# run_command killclient"
+			print "#INDENT#🕂 Move\t#IPCCMD# run_command movemouse"
+			print "#INDENT#⇲ Resize\t#IPCCMD# run_command resizemouse"
+			print "#INDENT#🕀 Place\t#IPCCMD# run_command placemouse"
+			print "#INDENT#"
+			print "#INDENT#🗗 Toggle Floating\t#IPCCMD# run_command togglefloating"
+			print "#INDENT#🗗 Toggle Sticky\t#IPCCMD# run_command togglesticky"
+			print "#INDENT#⛶ Fullscreen\t#IPCCMD# run_command togglefullscreen"
+			print "#INDENT#"
+			print "#INDENT#Flags"
 		}
 
 		NF == 1 {
@@ -25,13 +29,13 @@ bind_clientmenu() {
 
 		{
 			gsub(/^  |"|,/, "");
-			print "#INDENT#" $1 ": " $2 "\t#IPCCMD# run_command toggleclientflag " $1
+			print "#INDENT#\t" $1 ": " $2 "\t#IPCCMD# run_command toggleclientflag " $1
 		}
 	' | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/"
 }
 
 # Allow the above menu to be sourced by other scripts by setting
 # the SOURCE_MENU environment variable.
-if [ -z $SOURCE_MENU ]; then
-	$(bind_clientmenu | xmenu)
+if [ -z "$SOURCE_MENU" ]; then
+	eval "$(bind_clientmenu '' | xmenu)"
 fi

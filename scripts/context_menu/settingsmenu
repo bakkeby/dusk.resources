@@ -1,8 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ -z $IPCCMD ]; then
-	IPCCMD=duskc
-fi
+test -z "$IPCCMD" && IPCCMD=duskc
 
 bind_settingsmenu() {
 	JSON=$($IPCCMD get_settings | jq ".Functionality")
@@ -11,7 +9,7 @@ bind_settingsmenu() {
 		NAME=$(wmctrl -m | awk '/Name:/ {print $2}')
 	fi
 
-	echo $JSON | jq '.' | awk -F":" -vNAME="$NAME" '
+	echo "$JSON" | jq '.' | awk -F":" -vNAME="$NAME" '
 		BEGIN {
 			print "#INDENT#" NAME
 		}
@@ -22,13 +20,13 @@ bind_settingsmenu() {
 
 		{
 			gsub(/^  |"|,/, "");
-			print "#INDENT#	" $1 ": " $2 "\t #IPCCMD# run_command toggle " $1
+			print "#INDENT#	" $1 ": " $2 "\t #IPCCMD# run_command toggle " $1 ""
 		}
 	' | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/"
 }
 
 # Allow the above menu to be sourced by other scripts by setting
 # the SOURCE_MENU environment variable.
-if [ -z $SOURCE_MENU ]; then
-	$(bind_settingsmenu | xmenu)
+if [ -z "$SOURCE_MENU" ]; then
+	eval "$(bind_settingsmenu '' | xmenu)"
 fi

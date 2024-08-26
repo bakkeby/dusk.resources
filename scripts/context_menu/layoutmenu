@@ -1,8 +1,6 @@
 #!/bin/bash
 
-if [ -z $IPCCMD ]; then
-	IPCCMD=duskc
-fi
+test -z "$IPCCMD" && IPCCMD=duskc
 
 bind_layout() {
 	cat << EOF | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/"
@@ -228,6 +226,6 @@ EOF
 
 # Allow the above menu to be sourced by other scripts by setting
 # the SOURCE_MENU environment variable.
-if [ -z $SOURCE_MENU ]; then
-	$(bind_layout | xmenu)
+if [ -z "$SOURCE_MENU" ]; then
+	eval "$(bind_layout '' | xmenu)"
 fi

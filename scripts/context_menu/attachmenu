@@ -1,0 +1,21 @@
+#!/bin/bash
+
+test -z "$IPCCMD" && IPCCMD=duskc
+
+bind_clientmenu() {
+	cat << EOF | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/"
+#INDENT# Change default attach mode
+#INDENT#
+#INDENT# AttachMasster	#IPCCMD# run_command setattachdefault AttachMaster
+#INDENT# AttachAside	#IPCCMD# run_command setattachdefault AttachAside
+#INDENT# AttachAbove	#IPCCMD# run_command setattachdefault AttachAbove
+#INDENT# AttachBelow	#IPCCMD# run_command setattachdefault AttachBelow
+#INDENT# AttachBottom	#IPCCMD# run_command setattachdefault AttachBottom
+EOF
+}
+
+# Allow the above menu to be sourced by other scripts by setting
+# the SOURCE_MENU environment variable.
+if [ -z "$SOURCE_MENU" ]; then
+	eval "$(bind_clientmenu '' | xmenu)"
+fi
