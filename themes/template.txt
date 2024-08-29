@@ -26,8 +26,8 @@ COLOR_SCOPE.color15: COLOR15
 #endif
 
 ! === general colors ===
-*.foreground: BASE_FOREGROUND
-*.background: BASE_BACKGROUND
+*.foreground: TERMINAL_FOREGROUND
+*.background: TERMINAL_BACKGROUND
 #ifdef CURSOR
 *.cursor: CURSOR
 #endif
