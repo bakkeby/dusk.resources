@@ -14,9 +14,9 @@
 #define COLOR13 #fb82ff
 #define COLOR14 #60d3d1
 #define COLOR15 #eeeeee
+#define BASE_FOREGROUND #adadad
 #define BASE_BACKGROUND #202020
 #define TERMINAL_BACKGROUND #101010
-#define BASE_FOREGROUND #adadad
 #define CURSOR #ffffff
 
 #define SELECTED_FOREGROUND COLOR15
