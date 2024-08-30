@@ -15,6 +15,7 @@
 #define COLOR14 #5d504a
 #define COLOR15 #ffffff
 #define BASE_BACKGROUND #222225
+#define TERMINAL_BACKGROUND #121215
 #define BASE_FOREGROUND #ededed
 #define CURSOR #ededed
 
