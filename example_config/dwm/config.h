@@ -440,7 +440,7 @@ static Key keys[] = {
 	{ KeyPress,   MODKEY,                       XK_l,            setmfact,               {.f = +0.05} }, // increase the size of the master area compared to the stack area(s)
 	{ KeyPress,   MODKEY,                       XK_Return,       zoom,                   {0} }, // moves the currently focused window to/from the master area (for tiled layouts)
 	{ KeyPress,   MODKEY,                       XK_Return,       zoom,                   {0} }, // moves the currently focused window to/from the master area (for tiled layouts)
-	{ KeyPress,   MODKEY,                       XK_Tab,          togglewsmask,           {0} }, // revert to previous view
+//	{ KeyPress,   MODKEY,                       XK_Tab,          togglewsmask,           {0} }, // revert to previous view
 	{ KeyPress,   MODKEY,                       XK_c,            killclient,             {0} }, // close the currently focused window
 	{ KeyPress,   MODKEY,                       XK_t,            setlayout,              {0} }, // set the tile layout
 	{ KeyPress,   MODKEY,                       XK_f,            setlayout,              {1} }, // set the monocle layout
