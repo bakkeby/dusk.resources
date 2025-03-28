@@ -3,7 +3,9 @@
 DIR=$(dirname ${BASH_SOURCE[0]})
 
 case $BLOCK_BUTTON in
-	8) subl $DIR/mem ;;
+	3) $HOME/bin/context_menu/memmenu & ;;
+	8) subl $DIR/mem.c ;;
 	9) subl $DIR/mem_click ;;
 	*) notify-send -t 2000 "mem $BLOCK_BUTTON" & ;;
 esac
+

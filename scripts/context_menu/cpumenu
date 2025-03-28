@@ -1,0 +1,27 @@
+#!/bin/bash
+
+bind_cpumenu() {
+	echo -e "#INDENT#/proc/cpuinfo (RO)\n"
+	sed -e 's/\t//g' /proc/cpuinfo | awk -F":" '
+	/processor/ {
+		print "#INDENT#" $0
+		next
+	}
+
+	$1 {
+		if (length($2) > 90) {
+			printf "#INDENT#\t%s:%s...\t%s\n", $1, substr($2,1,90), $0
+		} else {
+			print "#INDENT#\t" $0
+		}
+	}'
+}
+
+# Allow the above menu to be sourced by other scripts by setting
+# the SOURCE_MENU environment variable.
+if [ -z "$SOURCE_MENU" ]; then
+	CHOICE="$(bind_cpumenu | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/" | xmenu)"
+	if [ -n "$CHOICE" ]; then
+		echo "$CHOICE" | awk -F": " '{ printf $2 }' | xclip -selection clipboard
+	fi
+fi

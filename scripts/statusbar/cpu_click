@@ -3,7 +3,8 @@
 DIR=$(dirname ${BASH_SOURCE[0]})
 
 case $BLOCK_BUTTON in
-	8) subl $DIR/cpu ;;
+	3) $HOME/bin/context_menu/cpumenu & ;;
+	8) subl $DIR/cpu.c ;;
 	9) subl $DIR/cpu_click ;;
 	*) notify-send -t 2000 "cpu $BLOCK_BUTTON" & ;;
 esac

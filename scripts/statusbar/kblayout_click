@@ -9,3 +9,4 @@ case $BLOCK_BUTTON in
 	9) subl $DIR/kblayout_click ;;
 	*) notify-send -t 2000 "kblayout $BLOCK_BUTTON" & ;;
 esac
+

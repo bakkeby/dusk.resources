@@ -3,7 +3,7 @@ if [ ! $(command -v paru) ]; then
 	exit
 fi
 
-UPDATES=$(paru -Qu | wc -l)
+UPDATES=$(paru -Qu | grep -v "\[ignored\]" | wc -l)
 if [ "$UPDATES" != "0" ]; then
 	echo "^c#888888^ ${UPDATES}^d^"
 fi

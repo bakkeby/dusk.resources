@@ -1,6 +1,6 @@
 #!/bin/sh
 
-OUTPUT=$(awk -vFILE=/tmp/.$USER.statusbar.cpu.${DISPLAY}.txt\~ -vFGCOLOR=${FGCOLOR}  -vCOL1="14" -vCOL2="6" '
+OUTPUT=$(awk -vFILE=/tmp/.$USER.statusbar.cpu.${DISPLAY}.txt\~ -vFGCOLOR=${FGCOLOR}  -vCOL1="1" -vCOL2="1" '
 BEGIN {
 	while ((getline < FILE) > 0) {
 		total = 0
@@ -50,7 +50,7 @@ END {
 	}
 	OUTPUT=OUTPUT "^d^^f" X+lrpad "^"
 	if (TOTAL["A"]-PREVTOTAL["A"] != 0) {
-		PCT=int((1-(IDLE["A"]-PREVIDLE["A"])/(TOTAL["A"]-PREVTOTAL["A"]))*100)
+		PCT=int(100 - ((IDLE["A"]-PREVIDLE["A"])/(TOTAL["A"]-PREVTOTAL["A"]))*100)
 		printf("%s" FGCOLOR "%s%% CPU^d^\n",OUTPUT,PCT)
 	}
 }

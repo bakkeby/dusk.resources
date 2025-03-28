@@ -1,0 +1,17 @@
+#!/bin/bash
+
+bind_memmenu() {
+	echo -e "#INDENT#/proc/meminfo (RO)\n"
+	awk '{
+		print "#INDENT#" $0
+	}' /proc/meminfo
+}
+
+# Allow the above menu to be sourced by other scripts by setting
+# the SOURCE_MENU environment variable.
+if [ -z "$SOURCE_MENU" ]; then
+	CHOICE=$(bind_memmenu | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/" | xmenu)
+	if [ -n "$CHOICE" ]; then
+		echo "$CHOICE" | awk '{ printf $2 }' | xclip -selection clipboard
+	fi
+fi

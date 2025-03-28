@@ -48,6 +48,7 @@ if [[ $(pacmd list-sinks | grep -c "muted: yes") > 0 ]]; then
 	echo "🔇"
 	exit
 fi
+
 VOLUME=$(pacmd list-sinks | awk '
 	BEGIN {
 		FOUND=0
@@ -63,9 +64,11 @@ VOLUME=$(pacmd list-sinks | awk '
 		exit 0
 	}
 ')
+
 if [[ -z $VOLUME ]]; then
 	echo " %"
 	exit
 fi
 
 ${HOME}/bin/statusbar/status2d_volume -p $VOLUME -h $HEIGHT --textcolor "$TEXTCOLOR" --oddcolor "$ODDCOLOR" --evencolor "$EVENCOLOR"
+
