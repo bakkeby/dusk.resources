@@ -14,6 +14,7 @@ main()
 
 	long total_mem = 0;
 	long free_mem = 0;
+	long shared_mem = 0;
 	long used_mem = 0;
 	long cached_mem = 0;
 	long buffers_mem = 0;
@@ -39,12 +40,13 @@ main()
 	while (fgets(line, sizeof(line), meminfo)) {
 		sscanf(line, "MemTotal: %ld kB", &total_mem);
 		sscanf(line, "MemFree: %ld kB", &free_mem);
+		sscanf(line, "Shmem: %ld kB", &shared_mem);
 		sscanf(line, "Cached: %ld kB", &cached_mem);
 		sscanf(line, "Buffers: %ld kB", &buffers_mem);
 		sscanf(line, "SReclaimable: %ld kB", &reclaimable_mem);
 	}
 
-	used_mem = (total_mem - free_mem - cached_mem - buffers_mem - reclaimable_mem);
+	used_mem = (total_mem - free_mem - cached_mem - buffers_mem - reclaimable_mem) + shared_mem;
 	symb_idx = symb_length * used_mem / total_mem;
 
 	printf("%s%s%s %s%d%s/%d %sMB%s\n",
