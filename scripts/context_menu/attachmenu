@@ -6,7 +6,7 @@ bind_clientmenu() {
 	cat << EOF | sed -e "s/#INDENT#/$1/" -e "s/#IPCCMD#/${IPCCMD}/"
 #INDENT# Change default attach mode
 #INDENT#
-#INDENT# AttachMasster	#IPCCMD# run_command setattachdefault AttachMaster
+#INDENT# AttachMaster	#IPCCMD# run_command setattachdefault AttachMaster
 #INDENT# AttachAside	#IPCCMD# run_command setattachdefault AttachAside
 #INDENT# AttachAbove	#IPCCMD# run_command setattachdefault AttachAbove
 #INDENT# AttachBelow	#IPCCMD# run_command setattachdefault AttachBelow
